@@ -29,7 +29,7 @@ export default function BlogPlatform() {
   const [showFilters, setShowFilters] = useState(false)
 
   useEffect(() => {
-    fetch("http://localhost:3001/posts")
+    fetch("https://blogging-app-backend-xfdt.onrender.com/posts")
       .then(res => res.json())
       .then(data => {
         setArticles(data.data)
@@ -84,7 +84,7 @@ export default function BlogPlatform() {
   // Handle deleting an article
   const handleDeleteArticle = (id) => {
     console.log(articles)
-    fetch(`http://localhost:3001/posts/${id}`, {
+    fetch(`https://blogging-app-backend-xfdt.onrender.com/posts/${id}`, {
       method: "DELETE",
     })
       .then(res => res.json())
@@ -136,7 +136,7 @@ export default function BlogPlatform() {
         ...formData,
         excerpt,
       }
-      fetch(`http://localhost:3001/posts/${selectedArticle.id}`, {
+      fetch(`https://blogging-app-backend-xfdt.onrender.com/posts/${selectedArticle.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -158,7 +158,7 @@ export default function BlogPlatform() {
         ...formData,
         excerpt,
       };
-      fetch("http://localhost:3001/posts", {
+      fetch("https://blogging-app-backend-xfdt.onrender.com/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
